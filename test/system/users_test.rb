@@ -14,13 +14,12 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "New User"
 
-    fill_in "Name", with: @user.name
+    fill_in "Name", with: 'blaine'
     fill_in "Password", with: 'secret'
-    fill_in "Password confirmation", with: 'secret'
+    fill_in "Confirm", with: 'secret'
     click_on "Create User"
 
-    assert_text "User was successfully created"
-    click_on "Back"
+    assert_text "User blaine was successfully created"
   end
 
   test "updating a User" do
@@ -29,11 +28,10 @@ class UsersTest < ApplicationSystemTestCase
 
     fill_in "Name", with: @user.name
     fill_in "Password", with: 'secret'
-    fill_in "Password confirmation", with: 'secret'
+    fill_in "Confirm", with: 'secret'
     click_on "Update User"
 
-    assert_text "User was successfully updated"
-    click_on "Back"
+    assert_text "User dave was successfully updated"
   end
 
   test "destroying a User" do
@@ -42,6 +40,6 @@ class UsersTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "User was successfully destroyed"
+    assert_text "Please Log In"
   end
 end
